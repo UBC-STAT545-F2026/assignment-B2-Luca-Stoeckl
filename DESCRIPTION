@@ -1,0 +1,23 @@
+Package: assignmentB2LucaStoeckl
+Title: Count Missing Values for All Columns by Group
+Version: 0.1.0
+Authors@R: 
+    person("Luca", "Stöckl", , "lucastockl@icloud.com", role = c("aut", "cre"))
+Description: One function, count_all_missing_by_group(), that counts
+    the missing values (NA) in every column of a data frame for each level
+    of a grouping column. It saves writing the same 'dplyr' group_by() and
+    summarize() code every time and gives one row per group, so you
+    quickly see where data are missing.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Depends: 
+    R (>= 4.1.0)
+Imports: 
+    dplyr (>= 1.1.0)
+Suggests: 
+    datasets,
+    testthat (>= 3.1.5),
+    tibble
+Config/testthat/edition: 3
+Config/roxygen2/version: 8.1.1

@@ -1,0 +1,51 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# assignmentB2LucaStoeckl
+
+This package has one function, `count_all_missing_by_group()`. You give it a data frame and a grouping column, and it tells you how many NAs every column has in each group. I wrote this kind of `group_by()` + `summarize(across(...))` code again and again when looking at new data, so now it is one call.
+
+## Installation
+
+Install version 0.1.0 from GitHub:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("UBC-STAT545-F2026/assignment-B2-Luca-Stoeckl", ref = "0.1.0")
+```
+
+## Usage
+
+NAs per month in the `airquality` data:
+
+```{r example}
+library(assignmentB2LucaStoeckl)
+
+count_all_missing_by_group(airquality, Month)
+```
+
+Almost all NAs are in `Ozone`. June alone has 21 of them, so for Ozone in June I would be careful.
+
+Piping works too:
+
+```{r pipe}
+airquality |> count_all_missing_by_group(Month)
+```
+
+The output is ungrouped by default. With `.groups = "keep"` it stays grouped by `Month`:
+
+```{r keep}
+count_all_missing_by_group(airquality, Month, .groups = "keep")
+```
+
+Full documentation: `?count_all_missing_by_group`.
